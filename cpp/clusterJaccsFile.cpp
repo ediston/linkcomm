@@ -164,7 +164,8 @@ int main (int argc, char const *argv[]){
         mc =   it->second.size();
         nc = clusterNodes.size();
         M += mc;
-        if (nc != 2) {
+        // if nc  == 1 then this can make wSum = - inf
+        if (nc > 2) {
             Mns  += mc;
             wSum += mc * (mc - (nc-1.0)) / ((nc-2.0)*(nc-1.0));
         }
